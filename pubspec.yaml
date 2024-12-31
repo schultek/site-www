@@ -12,7 +12,7 @@ workspace:
 
 dependencies:
   cosmic_frontmatter: ^1.0.3
-  jaspr: ^0.16.2
+  jaspr: ^0.16.3
   jaspr_router: ^0.6.0
   liquid_engine: ^0.2.2
   markdown: ^7.2.2
@@ -23,7 +23,7 @@ dependencies:
 dev_dependencies:
   dart_site:
     path: tool/dart_site
-  jaspr_builder: ^0.16.2
+  jaspr_builder: ^0.16.3
 
 jaspr:
   mode: static
