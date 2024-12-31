@@ -88,28 +88,25 @@ use the appropriate package manager for your development platform.
 To upgrade the Dart SDK,
 run the same command to install the Dart SDK from your package manager.
 
-<ul class="tabs__top-bar">
-  <li class="tab-link current" data-tab="tab-sdk-install-windows">Windows</li>
-  <li class="tab-link" data-tab="tab-sdk-install-linux">Linux</li>
-  <li class="tab-link" data-tab="tab-sdk-install-mac">macOS</li>
-</ul>
-<div id="tab-sdk-install-windows" class="tabs__content current">
+{% os_tabs %}
+
+{% os_tab 'windows' %}
 
 {% include 'install/windows.md' %}
 
-</div>
+{% endos_tab %}
 
-<div id="tab-sdk-install-linux" class="tabs__content">
+{% os_tab 'linux' %}
 
 {% include 'install/linux.md' %}
 
-</div>
+{% endos_tab %}
 
-<div id="tab-sdk-install-mac" class="tabs__content">
+{% os_tab 'mac' %}
 
 {% include 'install/macos.md' %}
 
-</div>
+{% endos_tab %}
 
 ## Release channel reference {:#release-channels}
 

@@ -7,13 +7,8 @@ which includes the full Dart SDK.
 
 [download the Flutter SDK,]: {{site.flutter-docs}}/get-started/install
 
-<ul class="tabs__top-bar">
-  <li class="tab-link current" data-tab="tab-sdk-install-windows">Windows</li>
-  <li class="tab-link" data-tab="tab-sdk-install-linux">Linux</li>
-  <li class="tab-link" data-tab="tab-sdk-install-mac">Mac</li>
-</ul>
-
-<div id="tab-sdk-install-windows" class="tabs__content current">
+{% os_tabs %}
+{% os_tab 'windows' %}
 
   Use [Chocolatey](https://chocolatey.org) to install a stable release of
   the Dart SDK.
@@ -32,9 +27,9 @@ which includes the full Dart SDK.
   C:\> choco install dart-sdk
   ```
 
-</div>
+{% endos_tab %}
 
-<div id="tab-sdk-install-linux" class="tabs__content">
+{% os_tab 'linux' %}
 
   You can use APT to install the Dart SDK on Linux.
 
@@ -53,10 +48,10 @@ which includes the full Dart SDK.
      $ sudo apt-get update
      $ sudo apt-get install dart
      ```
-     
-</div>
 
-<div id="tab-sdk-install-mac" class="tabs__content">
+{% endos_tab %}
+
+{% os_tab 'mac' %}
 
   With [Homebrew,](https://brew.sh/)
   installing Dart is easy.
@@ -66,7 +61,7 @@ which includes the full Dart SDK.
   $ brew install dart
   ```
 
-</div>
+{% endos_tab %}
 
 :::important
 For more information, including how to **adjust your `PATH`**, see
