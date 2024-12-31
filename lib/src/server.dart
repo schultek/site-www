@@ -16,13 +16,17 @@ void run(Component app) async {
     var response = await render(app);
     var content = await response.readAsString();
     if (content.contains('<body>NOT FOUND</body>')) {
-      return proxy(request.change(body: ''));
+      var response = await proxy(request.change(body: ''));
+      return response;
     }
     return Response.ok(content, headers: {'Content-Type': 'text/html'});
   });
   var cascade = Cascade().add((request) {
     return appHandler(request.change(body: ''));
-  }).add(proxy);
+  }).add((request) async {
+    var response = await proxy(request);
+    return response;
+  });
 
   var handler = const Pipeline() //
       .addMiddleware(logRequests())

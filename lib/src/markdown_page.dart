@@ -6,6 +6,8 @@ import 'package:dart_dev/layouts/default.dart';
 import 'package:dart_dev/src/data.dart';
 import 'package:jaspr/server.dart';
 import 'package:liquid_engine/liquid_engine.dart';
+import 'package:liquid_engine/src/buildin_tags/include.dart';
+import 'package:liquid_engine/src/model_io.dart';
 import 'package:markdown/markdown.dart';
 
 class MarkdownPage extends AsyncStatelessComponent {
@@ -29,10 +31,20 @@ class MarkdownPage extends AsyncStatelessComponent {
       'page': {'url': path}
     });
 
+    liquidContext.filters.addAll({
+      'modulo': (input, args) {
+        return input % args[0];
+      },
+    });
+    liquidContext.tags.addAll({
+      'render': Include.factory,
+    });
+
     vars.clear();
     vars.addAll(liquidContext.variables);
 
-    final template = Template.parse(liquidContext, Source.fromString(document.body));
+    final template = Template.parse(liquidContext, Source(null, document.body, BuildPath(Uri(path: 'src/_includes/'))));
+
     final html = markdownToHtml(await template.render(liquidContext));
 
     final child = raw(html);
